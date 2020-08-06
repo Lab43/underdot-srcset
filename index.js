@@ -7,7 +7,7 @@ const sharp = require('sharp')
 
 module.exports = ({presets = [], ...options}) => (plugin) => {
 
-  plugin.registerTemplateHelper('srcset', (metadata, src, preset, attributes) => {
+  plugin.registerTemplateHelper('srcset', (metadata, src, preset, attributes = {}) => {
 
     if (!presets[preset]) throw new Error('undefined srcset preset');
 
