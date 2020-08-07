@@ -9,9 +9,15 @@ module.exports = ({presets = [], ...options}) => (plugin) => {
 
   plugin.registerTemplateHelper('srcset', (metadata, src, preset, attributes = {}) => {
 
-    if (!presets[preset]) throw new Error('undefined srcset preset');
+    // either get the sizes and srcset from the preset or extract them from the attributes
+    let sizes, srcset;
+    if (preset) {
+      if( !presets[preset]) throw new Error('Unknown srcset preset');
+      ({sizes, srcset} = presets[preset]);
+    } else {
+      ({sizes, srcset} = attributes);
+    }
 
-    const {sizes, srcset} = presets[preset];
     const from = '/' + metadata.filePath;
     const path = url.resolve(from, src);
 
