@@ -18,7 +18,7 @@ module.exports = ({presets = [], ...options}) => (plugin) => {
       ({sizes, srcset} = attributes);
     }
 
-    const from = '/' + metadata.filePath;
+    const from = '/' + metadata.dirname;
     const path = url.resolve(from, src);
 
     const resizedFiles = srcset.map((width) => {
