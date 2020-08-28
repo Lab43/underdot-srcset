@@ -18,8 +18,10 @@ module.exports = ({presets = [], ...options}) => (plugin) => {
       ({sizes, srcset} = attributes);
     }
 
-    const from = '/' + metadata.dirname;
-    const path = url.resolve(from, src);
+    const path = p.isAbsolute(src)
+      ? src
+      : p.join('/', metadata.dirname, src)
+    ;
 
     const resizedFiles = srcset.map((width) => {
       // add size to file name https://stackoverflow.com/a/10802339
