@@ -1,6 +1,5 @@
 const sharp = require('sharp')
     , p = require('path')
-    , url = require('url')
 ;
 
 
