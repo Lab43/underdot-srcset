@@ -32,11 +32,12 @@ module.exports = ({presets = [], ...options}) => (plugin) => {
     });
 
     attributes.sizes = sizes;
-    attributes.srcset = resizedFiles.join(',')
+    attributes.srcset = resizedFiles.join(',');
 
     const output = ['<img'];
     for (attribute in attributes) {
-      output.push(` ${attribute}="${attributes[attribute]}"`);
+      const value = attributes[attribute];
+      if (value !== false) output.push(` ${attribute}="${value}"`);
     }
     output.push('>');
     return output.join('');
