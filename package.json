@@ -1,11 +1,11 @@
 {
   "name": "underdot-srcset",
   "version": "1.0.0",
-  "description": "",
+  "description": "Responsive images for Underdot",
   "main": "index.js",
-  "author": "",
+  "author": "Cameron Spencer <cameron@lab43.com> (https://www.lab43.com)",
   "license": "ISC",
   "dependencies": {
-    "sharp": "^0.25.4"
+    "sharp": "^0.27.2"
   }
 }
